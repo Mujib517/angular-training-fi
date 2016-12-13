@@ -1,0 +1,15 @@
+<a href="/addUser" class="ui button">Add New User</a>
+
+<div class="ui divided list">
+    <div class="item" ng-repeat="user in users">
+
+        <a href="users/{{user.login}}">
+         <img class="ui avatar image" src="{{user.avatar_url}}">
+            <div class="ui label">{{user.login}}</div>
+        </a>
+
+        <div class="right floated checkbox">
+            <input type="checkbox" ng-model="user.site_admin" />
+        </div>
+    </div>
+</div>

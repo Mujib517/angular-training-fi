@@ -1,4 +1,29 @@
-var app=angular.module('app',[]);  //no dependency
+var app=angular.module('app',['ngRoute','serviceModule']);  //one dependency
+
+app.config(function($routeProvider,$locationProvider){
+
+    $locationProvider.html5Mode(true);
+
+    $routeProvider
+    .when('/',{
+        template:'<h1>Home Page</h1>'
+    })
+    .when('/about',{
+        template:'<h1>About Page</h1>'
+    })
+      .when('/users',{
+        templateUrl:'app/templates/users.html',
+        controller:'userCtrl'
+    })
+    .when('/users/:id',{
+       templateUrl:'app/templates/user-detail.html',
+        controller:'userDetailCtrl' 
+    })
+      .when('/addUser',{
+        templateUrl:'app/templates/add-user.html'
+    })
+    .otherwise('/');
+});
 
 
 var myCtrl=function($scope,$rootScope){

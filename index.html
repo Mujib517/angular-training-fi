@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
+
 <head>
     <meta charset="UTF-8">
     <title>Angular Training</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.css" rel="stylesheet" />
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.js"></script>
+
+
     <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
 
     <script src="app/app.js"></script>
+    <script src="app/user.controller.js"></script>
+    <script src="app/userDetail.controller.js"></script>
+    <script src="app/services.js"></script>
+
+
+    <base href="/" />
 </head>
+
 <body ng-controller="myCtrl">
-   
-   {{message | lowercase}}
 
-   {{today| date:'MM dd yyyy'}}
+    <div class="ui container">
+        <div class="ui menu">
+            <a class="item" href="/">Home</a>
+            <a class="item" href="/about">About</a>
+            <a class="item" href="/users">Users</a>
+        </div>
 
-   <!--<div>{{message2}}</div>
+        <div ng-view></div>
+    </div>
 
-   <h1>{{rootProp}}</h1>
-
-   <input type="text" ng-model="message"/>
-
-<div ng-if="showDiv">This div is shown</div>-->
+    
 
 
-<table border="1">
+    <!--<table border="1">
     <thead>
         <th>Val</th>
         <th>Index</th>
@@ -41,10 +57,11 @@
             <td>{{$middle}}</td>
         </tr>
     </tbody>
-</table>
+</table>-->
 
 
 
 
 </body>
+
 </html>
