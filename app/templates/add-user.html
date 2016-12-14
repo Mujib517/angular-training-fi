@@ -1,20 +1,44 @@
-<div class="ui form">
-    <div class="field">
-        <label>Login</label>
-        <input type="text" ng-model="user.login" />
-    </div>
-    <div class="field">
-        <label>Name</label>
-        <input type="text" ng-model="user.name" />
-    </div>
-    <div class="field">
-        <label>Site_Admin</label>
-        <input type="checkbox" ng-model="user.site_admin" />
-    </div>
+<style>
+    input.ng-invalid {
+        border:1px solid red !important;
+    }
 
-    <div class="field">
-        <button class="ui primary button">
+    input.ng-valid{
+        border:1px solid green !important;
+    }
+</style>
+
+
+
+<form novalidate name="frmUser">
+
+    <div class="ui form">
+        <div class="field">
+            <label>Login</label>
+            <input type="text" ng-model="user.login" name="login" ng-required="true" ng-minlength="3" ng-maxlength="7" />
+            <span ng-show="frmUser.login.$touched && frmUser.login.$error.required" class="ui red label">Required<span>            
+        </div>
+       
+        <div class="field">
+            <label>Name</label>
+            <input type="text" ng-model="user.name" ng-maxlength="5" name="name" />
+            <span class="ui red label" ng-show="frmUser.name.$error.maxlength">Max 5 Chars</span>
+        </div>
+        <div class="field">
+            <label>Site_Admin</label>
+            <input type="checkbox" ng-model="user.site_admin" />
+        </div>
+        <div class="field">
+            <label>Phone</label>
+            <input type="text" ng-model="user.phone" name="phone" ng-pattern="/[0-9]{10}/" />
+            <span ng-show="frmUser.phone.$invalid">Invalid Phone</span>
+        </div>
+
+        <div class="field">
+            <button class="ui primary button" ng-click="onSave()" ng-disabled="frmUser.$invalid">
            <i class="save icon"></i>
            Save</button>
+        </div>
     </div>
-</div>
+
+</form>

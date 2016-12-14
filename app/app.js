@@ -20,7 +20,8 @@ app.config(function($routeProvider,$locationProvider){
         controller:'userDetailCtrl' 
     })
       .when('/addUser',{
-        templateUrl:'app/templates/add-user.html'
+        templateUrl:'app/templates/add-user.html',
+        controller:'addUserCtrl'
     })
     .otherwise('/');
 });
